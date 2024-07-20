@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
 from .models import *
-# Create your views here.
+# Create My views here.
 def home(request):
     if "email" in request.session:
         return render(request,"myapp/index.html")
@@ -10,7 +10,7 @@ def home(request):
 
 def login(request):
     if "email" in request.session:
-        uid = User.objects.get(email = request.session['eamil'])
+        uid = User.objects.get(email = request.session['email'])
         if uid.role == "chairman":
             cid = chairman.objects.get(User_id = uid)
             context = {
